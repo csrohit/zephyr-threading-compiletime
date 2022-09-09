@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) 2021 Nordic Semiconductor ASA
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+        aliases {
+		csled = &led_c13;
+		yellowled = &led_b10;
+	};
+
+	leds {
+		compatible = "gpio-leds";
+		led_c13: led_c13 {
+			gpios = <&gpioc 0xd GPIO_ACTIVE_HIGH>;
+			label = "Rohit LED Pin C13";
+		};
+		led_b10: led_b10 {
+			gpios = <&gpiob 0xa GPIO_ACTIVE_HIGH>;
+			label = "Rohit LED Pin B10";
+		};
+	};
+};
+
+&zephyr_udc0 {
+        cdc_acm_uart0: cdc_acm_uart0 {
+                compatible = "zephyr,cdc-acm-uart";
+        };
+};
+
